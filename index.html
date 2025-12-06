@@ -1,0 +1,992 @@
+<HTML>
+    <HEAD>
+        <title>Fleur</title>
+        <meta charset = "UTF=8"/>
+        <meta name = "viewport"
+        content="width=device-width, initial-scale =1">
+        <STYLE>
+            body{
+                margin:0;
+                padding:0;
+                width:100vw;
+                height:100vh;
+                background-image:
+                url("C:/Users/manuj_5gl6nqu/OneDrive/Desktop/Devanshi's private folder/Ideas/Fleur/BG Graphics.png");
+                background-size:cover;
+                background-position:center;
+                background-repeat:no-repeat;overflow:hidden;           
+            }
+            #diaryIcon {
+                position:fixed;
+                left:25px;
+                bottom:5px;
+                width:120px;
+                cursor:pointer;
+                z-index:2;
+            }
+            diaryIcon:active{
+                transform:scale(0.97);
+            }
+            #diaryFrame{
+                position:fixed;
+                left:50%;
+                top:100%;
+                width:500px; 
+                height:600px;
+                background:#cd9e59;
+                border-radius:20px;
+                box-shadow:0 12px 40px #8b8b8b44;
+                transform:translate(-50%, 0);
+                transition: top 0.4s
+            cubic-bezier(.83, .01, .17, 1);
+            z-index: 10;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            padding:20px;
+            opacity:0;
+            pointer-events: none;
+            }
+            .diaryTitle {
+  text-align: center;
+  font-size: 20px;
+  color: #5a4a42;
+  margin-bottom: 12px;
+}
+
+#diaryEntries {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.diaryEntry {
+  background: #fff;
+  border: 2px solid #d9cfc2;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 8px #00000022;
+  text-align: center;
+}
+
+.diaryEntry h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #444;
+}
+
+.diaryEntry p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+            #diaryFrame.show{
+                top:50%;
+                opacity:1;
+                pointer-events: all;
+                transform:translate(-50%, -50%);
+            }
+            #closeDiary{
+                position:absolute;
+                top:20px; right:18px;
+                font-size: 18px;
+                color:#92806b;
+                background:none;
+                cursor:pointer;
+            }
+            #phoneIcon{
+                position:fixed;
+                right:30px;
+                bottom:30px;
+                width:90px;
+                height:120px;
+                cursor:pointer;
+                z-index:2;
+                background:url("") no-repeat, center/contain;
+                border-radius:20px;
+                box-shadow: 0 4px 12px #0002;
+                transition:transform 0.2s;
+            }
+            #phoneIcon:active{
+                transform:scale(0.97);
+            }
+            #phoneFrame{
+                position:fixed;
+                left:50%;
+                top:100%;
+                width:320px;
+                height:570;
+                background:#86ab74;
+                border-radius:40px;
+                box-shadow:0 12px 40px #8b8b8b44;
+                transform: translate(-50%, 0);
+                transition: top 0.4s
+            cubic-bezier(.83,.01,.17,1);
+            z-index: 10;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            padding:24px;
+            opacity:0;
+            pointer-events:none;
+                border: 1px solid black;    
+            }
+            #phoneFrame.show{
+                top:50%;
+                opacity:1;
+                pointer-events:all;
+                transform:translate(-50%,-50%);
+            }
+            #closePhone{
+                position:absolute;
+                top:23px; right:20px;
+                font-size: 18px;
+                color:#92806b;
+                background:none;
+                cursor:pointer;
+            }
+            #plusButton{
+                position:fixed;
+                bottom:25px;
+                left:50%;
+                transform:translateX(-50%);
+                width:220px;
+                height:70px;
+                background:#6c8E46;
+                color:#ffffff;
+                font-size:40px;
+                font-weight:600;
+                display:flex;
+                align-items: center;
+                justify-content:center;
+                border-radius:18px;
+                cursor:pointer;
+                box-shadow:0 6px 16px rgba (0,0,0,0.25);
+                z-index: 5;
+                transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+                user-select:none;
+            }
+            #plusButton:hover{
+                background: #7cae54;
+                box-shadow: 0 8px 20px rgba (0,0,0,0.28);
+            }
+            #plusButton:active{
+                transform:translateX(-50%) translateY(2px);
+                box-shadow: 0 4px 10px rgba (0,0,0,0.2);
+            }
+            #plusFrame {
+    position: fixed;
+    left: 50%;
+    top: 100%;
+    width: 950px;
+    height: 570px; /* <-- add px here */
+    background: #e2c49f; /* cork/wood beige */
+    border: 8px solid #a67c52; /* darker wood trim */
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(80, 50, 20, 0.4);
+    transform: translate(-50%, 0);
+    transition: top 0.4s cubic-bezier(.83,.01,.17,1);
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#plusFrame.show {
+    top: 50%;
+    opacity: 1;
+    pointer-events: all;
+    transform: translate(-50%, -50%);
+}
+
+#previewWindow {
+    width: 55%;
+    height: 100%;
+    background: #fffdfa;
+    border: 5px solid #8b5e3c; /* deep wood brown */
+    border-radius: 16px;
+    box-shadow: inset 0 0 12px rgba(0,0,0,0.15);
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#bubbleContainer {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    max-height: 100%;
+    overflow-y: auto;       /* scrollable */
+    overflow-x: visible;    /* allow horizontal overflow */
+    position: relative;     /* needed for overflow control */
+    padding-right: 12px;
+}
+
+/* Hide scrollbars */
+#bubbleContainer::-webkit-scrollbar { display: none; }
+#bubbleContainer { scrollbar-width: none; -ms-overflow-style: none; }
+#bubbleContainer {
+    padding: 20px 20px 80px 20px; /* more space around bubbles */
+}
+
+.bubble {
+    width: 90%;
+    padding: 14px 15px;
+    background: #f7d9c4; /* soft peach note */
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #5a3c2e; /* chocolate brown text */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border: 2px solid #c48f65; /* pinned edge */
+}
+
+.bubble:hover {
+    transform: scale(1.05);
+    background: #f4c7a8;
+}
+#saveFlowerBtn {
+  background: #86ab74;          /* soft green to match Fleur’s palette */
+  color: #fff;                  /* white text */
+  border: 2px solid #444;       /* subtle dark border */
+  border-radius: 12px;          /* rounded corners */
+  padding: 10px 20px;           /* cozy spacing */
+  font-size: 16px;              /* readable text */
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* playful vibe */
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#saveFlowerBtn:hover {
+  background: #6f8f5f;          /* darker green on hover */
+}
+            #closePlusFrame{
+                position:absolute;
+                top:18px;
+                right:22px;
+                font-size:28px;
+                color:#686868;
+                background:none;
+                cursor:pointer;
+                z-index:12;
+                user-select:none;
+            }
+            #plusFrameContent{
+                flex-grow:1;
+                overflow-y:auto;
+                font-size:16px;
+                color:#873a3a;
+                margin-top:50px;
+            }
+            .appContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+    margin-top: 40px;
+}
+/* Details tab content */
+#detailsContent {
+    margin-top: 20px;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    color: #5a3c2e; /* warm brown text */
+}
+
+#detailsContent.show {
+    display: flex;
+}
+
+/* Slider styling */
+.detailsSlider {
+    width: 100%;
+}
+
+.detailsLabel {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* Flower type buttons */
+.flowerTypes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.flowerBtn {
+    padding: 10px 16px;
+    background: #f7d9c4; /* peach note */
+    border: 2px solid #c48f65;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #5a3c2e;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.flowerBtn:hover {
+    background: #f4c7a8;
+    transform: scale(1.05);
+}
+
+.flowerBtn.active {
+    background: #d9b38c; /* muted wood highlight */
+    color: #fffdfa;
+}
+#primaryColorContent {
+    display: none;   /* hidden by default */
+    margin-top: 20px;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    color: #5a3c2e;
+}
+
+#primaryColorContent.show {
+    display: flex;   /* shows when .show is added */
+}
+
+.colorGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.colorSquare {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid #c48f65;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.colorSquare:hover {
+    transform: scale(1.1);
+    border: 2px solid #8b5e3c;
+}
+
+.colorSquare.active {
+    border: 3px solid #6c8e46; /* olive green highlight */
+}
+#secondaryColorContent {
+    display: none;   /* hidden by default */
+    margin-top: 20px;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    color: #5a3c2e;
+}
+
+#secondaryColorContent.show {
+    display: flex;
+}
+
+.secondaryColorGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.secondaryColorSquare {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid #c48f65;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.secondaryColorSquare:hover {
+    transform: scale(1.1);
+    border: 2px solid #8b5e3c;
+}
+
+.secondaryColorSquare.active {
+    border: 3px solid #6c8e46; /* olive green highlight */
+}
+#descriptionContent {
+    display: none;   /* hidden by default */
+    margin-top: 20px;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    color: #5a3c2e;
+}
+
+#descriptionContent.show {
+    display: flex;
+}
+
+.descriptionInput {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #c48f65;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #5a3c2e;
+    background: #fffdfa;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.descriptionInput::placeholder {
+    color: #a67c52;
+    font-style: italic;
+}
+
+.appBox {
+    width: 260px;
+    height: 100px;
+    background: #2a502a;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: #d4d2d2;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.appBox:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.appScreen {
+    display: none;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.appScreen.show {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.backButton {
+    align-self: flex-end;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.chatBubble {
+    background:#e6f0ff;
+    padding:12px 16px;
+    border-radius:12px;
+    margin:8px 0;
+    max-width:80%;
+}
+
+.chatBubble.you {
+    background:#3c4c3c;
+    align-self:flex-end;
+}
+.flower {
+  position: relative;
+  width: 220px;
+  height: 260px;
+  margin: auto;
+}
+
+.stem {
+  position: absolute;
+  top: 50%;              /* start just below the bloom */
+  left: 50%;
+  width: 10px;
+  height: 120px;
+  background: var(--stem-color, #6c8e46);
+  transform: translateX(-50%);
+  border-radius: 5px;
+  z-index: 0;
+}
+.center {
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  width: 42px;
+  height: 42px;
+  background: var(--center-color, #d9b38c); /* use variable */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.petal {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 40px;
+  height: 90px;
+  background: var(--petal-color, #f7d9c4); /* use variable */
+  border-radius: 50% 50% 55% 55%;
+  transform-origin: center bottom;
+  z-index: 1;
+}
+
+        </STYLE>
+    </HEAD>
+    <BODY>   
+        <img id ="diaryIcon"
+        src="C:\Users\manuj_5gl6nqu\OneDrive\Desktop\Devanshi's private folder\Ideas\Fleur\Diary Icon.png"
+        alt="Diary Icon"
+        />
+        <div id ="diaryFrame">
+            <button id="closeDiary"></button>
+            <h2>Your Diary</h2>
+            <div id="diaryEntries">
+            </div>
+        </div>
+        <script>
+            document.getElementById('diaryIcon').onclick=function(){
+                document.getElementById('diaryFrame').classList.add('show');
+            }
+            document.getElementById('closeDiary').onclick=function(){
+                document.getElementById('diaryFrame').classList.remove('show');
+            }
+            let currentPage = 0;
+
+function renderDiary() {
+  const diaryEntries = document.getElementById("diaryEntries");
+  diaryEntries.innerHTML = "";
+
+  const diary = JSON.parse(localStorage.getItem("fleurDiary")) || [];
+  const pageSize = 9; // 3 rows × 3 columns
+  const start = currentPage * pageSize;
+  const end = start + pageSize;
+  const pageItems = diary.slice(start, end);
+
+  if (pageItems.length === 0) {
+    diaryEntries.innerHTML = "<p style='text-align:center;color:#999;'>Your diary is empty, try saving some flowers</p>";
+    return;
+  }
+
+  pageItems.forEach(entry => {
+    const div = document.createElement("div");
+    div.className = "diaryEntry";
+    div.innerHTML = `
+      <h3 style="color:${entry.color || '#444'}">${entry.emotion}</h3>
+      <p>${entry.description}</p>
+      <small style="color:#aaa;">Created: ${entry.createdAt}</small>
+    `;
+    diaryEntries.appendChild(div);
+  });
+
+  // Add pagination controls
+  const totalPages = Math.ceil(diary.length / pageSize);
+  const controls = document.createElement("div");
+  controls.style.textAlign = "center";
+  controls.style.marginTop = "10px";
+
+  if (currentPage > 0) {
+    const prevBtn = document.createElement("button");
+    prevBtn.textContent = "← Previous";
+    prevBtn.onclick = () => { currentPage--; renderDiary(); };
+    controls.appendChild(prevBtn);
+  }
+
+  if (currentPage < totalPages - 1) {
+    const nextBtn = document.createElement("button");
+    nextBtn.textContent = "Next →";
+    nextBtn.onclick = () => { currentPage++; renderDiary(); };
+    controls.appendChild(nextBtn);
+  }
+
+  diaryEntries.appendChild(controls);
+}
+        </script>
+        <div id="phoneIcon" title="OpenPhone">
+            <img src="C:\Users\manuj_5gl6nqu\OneDrive\Desktop\Devanshi's private folder\Ideas\Fleur\Phone Icon.png" alt="Phone Icon"
+            style="width:100%; height:100%; border-radius:12px;">
+        </div>
+        <div id="phoneFrame">
+            <button id="closePhone"></button>
+            <h2>Your Phone</h2>
+            <div>
+                <!--Put the content in this div-->
+                <!-- App list -->
+<div id="appList" class="appContainer">
+    <div id="ordersApp" class="appBox">Orders</div>
+    <div id="messagesApp" class="appBox">Messages</div>
+</div>
+
+<!-- Orders screen -->
+<div id="ordersScreen" class="appScreen">
+    <button class="backButton" onclick="showAppList()">← Back</button>
+    <h3>My Orders</h3>
+    <p>No new orders</p>
+</div>
+
+<!-- Messages screen -->
+<div id="messagesScreen" class="appScreen">
+    <button class="backButton" onclick="showAppList()">← Back</button>
+    <h3>Chat with Grandma</h3>
+    <div class="chatBubble">Grandma: Hello dear, how are you?</div>
+    <div class="chatBubble you">You: Hi Grandma, I’m good!</div>
+</div>
+
+            </div>
+        </div>
+        <script>
+            document.getElementById('phoneIcon').onclick=function(){
+                document.getElementById('phoneFrame').classList.add('show');
+            }
+            document.getElementById('closePhone').onclick=function(){
+                document.getElementById('phoneFrame').classList.remove('show');
+            }
+        </script>
+        <script>
+    const appList = document.getElementById('appList');
+    const ordersScreen = document.getElementById('ordersScreen');
+    const messagesScreen = document.getElementById('messagesScreen');
+
+    document.getElementById('ordersApp').onclick = function(){
+        appList.style.display = 'none';
+        ordersScreen.classList.add('show');
+        messagesScreen.classList.remove('show');
+    }
+
+    document.getElementById('messagesApp').onclick = function(){
+        appList.style.display = 'none';
+        messagesScreen.classList.add('show');
+        ordersScreen.classList.remove('show');
+    }
+
+    function showAppList(){
+        appList.style.display = 'flex';
+        ordersScreen.classList.remove('show');
+        messagesScreen.classList.remove('show');
+    }
+</script>
+
+        <div id = "plusButton" title="Add">
+            <h1 style="font-size:50px;">+</h1>
+        </div>
+        <div id="plusFrame" role="dialog" aria-modal="true" aria-labelledby="plusFrameTitle">
+            <button id ="closePlusFrame" aria-label="Close">
+            </button>
+            <div id="previewWindow">
+    <!-- Rectangular preview area -->
+    <p style="text-align:center; margin-top:50%; color:#8b5e3c;">Flower Preview</p>
+</div>
+<script>
+    function renderFlower() {
+  const preview = document.getElementById("previewWindow");
+  preview.innerHTML = ""; // clear old flower
+
+  // Get petal count
+  const petalCount = parseInt(document.getElementById("petalSlider").value);
+
+  // Get colors
+  const primary = document.querySelector(".colorSquare.active")?.style.background || "#f7d9c4";
+  const secondary = document.querySelector(".secondaryColorSquare.active")?.style.background || "#d9b38c";
+
+  // Create flower container
+  const flower = document.createElement("div");
+  flower.className = "flower";
+
+  // ✅ Apply chosen colors as CSS variables
+  flower.style.setProperty("--stem-color", "#6c8e46");
+  flower.style.setProperty("--center-color", secondary);
+  flower.style.setProperty("--petal-color", primary);
+
+  // Stem
+  const stem = document.createElement("div");
+  stem.className = "stem";
+  flower.appendChild(stem);
+
+  // Petals
+  for (let i = 0; i < petalCount; i++) {
+    const petal = document.createElement("div");
+    petal.className = "petal";
+    const angle = (360 / petalCount) * i;
+    petal.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+    flower.appendChild(petal);
+  }
+
+  // Center
+  const center = document.createElement("div");
+  center.className = "center";
+  flower.appendChild(center);
+
+  preview.appendChild(flower);
+}
+// Petal slider
+document.getElementById("petalSlider").oninput = renderFlower;
+</script>
+<script>
+// Primary color selection (petals)
+document.querySelectorAll(".colorSquare").forEach(square => {
+  square.addEventListener("click", () => {
+    // clear actives
+    document.querySelectorAll(".colorSquare").forEach(s => s.classList.remove("active"));
+    // set active
+    square.classList.add("active");
+    // redraw now
+    renderFlower();
+  });
+});
+
+// Secondary color selection (center)
+document.querySelectorAll(".secondaryColorSquare").forEach(square => {
+  square.addEventListener("click", () => {
+    document.querySelectorAll(".secondaryColorSquare").forEach(s => s.classList.remove("active"));
+    square.classList.add("active");
+    renderFlower();
+  });
+});
+</script>
+
+<div id="bubbleContainer">
+    <div class="bubble">Details</div>
+    <!-- Details tab expanded content -->
+<div id="detailsContent">
+    <!-- Number of petals -->
+    <div>
+        <div class="detailsLabel">Number of petals</div>
+        <input type="range" min="0" max="8" value="4" class="detailsSlider" id="petalSlider">
+        <span id="petalCount">4</span>
+    </div>
+
+    <!-- Flower type selection -->
+    <div>
+        <div class="detailsLabel">Type of flower</div>
+        <div class="flowerTypes">
+            <button class="flowerBtn">Dandelion</button>
+            <button class="flowerBtn">Sunflower</button>
+            <button class="flowerBtn">Rose</button>
+            <button class="flowerBtn">Tulip</button>
+            <button class="flowerBtn">Daisy</button>
+            <button class="flowerBtn">Lily</button>
+            <button class="flowerBtn">Marigold</button>
+        </div>
+    </div>
+</div>
+<div class="bubble" id="primaryColorBubble">Primary Color</div>
+
+<div id="primaryColorContent">
+    <div class="detailsLabel">Choose a Primary Color</div>
+    <div class="colorGrid">
+        <!-- Warm neutrals -->
+        <div class="colorSquare" style="background:#fffdfa;" title="Cream White"></div>
+        <div class="colorSquare" style="background:#f2e6d8;" title="Parchment"></div>
+        <div class="colorSquare" style="background:#e2c49f;" title="Cork Beige"></div>
+        <div class="colorSquare" style="background:#d9b38c;" title="Caramel"></div>
+        <div class="colorSquare" style="background:#a67c52;" title="Wood Brown"></div>
+        <div class="colorSquare" style="background:#8b5e3c;" title="Deep Brown"></div>
+
+        <!-- Reds & pinks -->
+        <div class="colorSquare" style="background:#873a3a;" title="Wine Red"></div>
+        <div class="colorSquare" style="background:#b56576;" title="Muted Rose"></div>
+        <div class="colorSquare" style="background:#e8b4a7;" title="Blush"></div>
+        <div class="colorSquare" style="background:#f4c7a8;" title="Apricot"></div>
+        <div class="colorSquare" style="background:#f7d9c4;" title="Peach"></div>
+
+        <!-- Greens -->
+        <div class="colorSquare" style="background:#6c8e46;" title="Olive Green"></div>
+        <div class="colorSquare" style="background:#7cae54;" title="Leaf Green"></div>
+        <div class="colorSquare" style="background:#9bbf7c;" title="Sage"></div>
+        <div class="colorSquare" style="background:#c5d9a0;" title="Pistachio"></div>
+
+        <!-- Yellows & golds -->
+        <div class="colorSquare" style="background:#f6e27f;" title="Goldenrod"></div>
+        <div class="colorSquare" style="background:#f9d976;" title="Sunflower Yellow"></div>
+        <div class="colorSquare" style="background:#f2c572;" title="Honey"></div>
+        <div class="colorSquare" style="background:#d1a080;" title="Latte"></div>
+    </div>
+</div>
+
+<div class="bubble" id="secondaryColorBubble">Secondary Color</div>
+
+<div id="secondaryColorContent">
+    <div class="detailsLabel">Choose a Secondary Color</div>
+    <div class="secondaryColorGrid">
+        <!-- Softer complementary palette -->
+        <div class="secondaryColorSquare" style="background:#e8b4a7;" title="Blush"></div>
+        <div class="secondaryColorSquare" style="background:#f7d9c4;" title="Peach"></div>
+        <div class="secondaryColorSquare" style="background:#f2e6d8;" title="Parchment"></div>
+        <div class="secondaryColorSquare" style="background:#c5d9a0;" title="Pistachio"></div>
+        <div class="secondaryColorSquare" style="background:#9bbf7c;" title="Sage"></div>
+
+        <div class="secondaryColorSquare" style="background:#d1a080;" title="Latte"></div>
+        <div class="secondaryColorSquare" style="background:#f4c7a8;" title="Apricot"></div>
+        <div class="secondaryColorSquare" style="background:#b56576;" title="Muted Rose"></div>
+        <div class="secondaryColorSquare" style="background:#f6e27f;" title="Goldenrod"></div>
+        <div class="secondaryColorSquare" style="background:#f9d976;" title="Sunflower Yellow"></div>
+
+        <div class="secondaryColorSquare" style="background:#7cae54;" title="Leaf Green"></div>
+        <div class="secondaryColorSquare" style="background:#6c8e46;" title="Olive Green"></div>
+        <div class="secondaryColorSquare" style="background:#d9b38c;" title="Caramel"></div>
+        <div class="secondaryColorSquare" style="background:#a67c52;" title="Wood Brown"></div>
+        <div class="secondaryColorSquare" style="background:#8b5e3c;" title="Deep Brown"></div>
+    </div>
+</div>
+
+<div class="bubble" id="descriptionBubble">Description</div>
+
+<div id="descriptionContent">
+    <div class="detailsLabel">Flower Name</div>
+    <input type="text" class="descriptionInput" placeholder="Give this emotion a name...">
+
+    <div class="detailsLabel">Description</div>
+    <textarea class="descriptionInput" rows="4" placeholder="Describe this feeling for yourself..."></textarea>
+</div>
+
+    <button id="saveFlowerBtn">Save</button>
+</div>
+        </div>
+        <script>
+    const primaryColorBubble = document.getElementById('primaryColorBubble');
+    const primaryColorContent = document.getElementById('primaryColorContent');
+
+    primaryColorBubble.onclick = function(){
+        primaryColorContent.classList.toggle('show');
+    }
+
+    const colorSquares = document.querySelectorAll('.colorSquare');
+    colorSquares.forEach(square => {
+        square.onclick = function(){
+            colorSquares.forEach(s => s.classList.remove('active'));
+            square.classList.add('active');
+            console.log("Selected color:", square.title);
+        }
+    });
+    // Toggle Secondary Color tab
+const secondaryColorBubble = document.getElementById('secondaryColorBubble');
+const secondaryColorContent = document.getElementById('secondaryColorContent');
+
+secondaryColorBubble.onclick = function(){
+    secondaryColorContent.classList.toggle('show');
+}
+
+// Secondary color selection
+const secondarySquares = document.querySelectorAll('.secondaryColorSquare');
+secondarySquares.forEach(square => {
+    square.onclick = function(){
+        secondarySquares.forEach(s => s.classList.remove('active'));
+        square.classList.add('active');
+        console.log("Selected secondary color:", square.title);
+    }
+});
+// Toggle Description tab
+const descriptionBubble = document.getElementById('descriptionBubble');
+const descriptionContent = document.getElementById('descriptionContent');
+
+descriptionBubble.onclick = function(){
+    descriptionContent.classList.toggle('show');
+}
+</script>
+
+        <script>
+            document.getElementById('plusButton').onclick = function() {
+    document.getElementById('plusFrame').classList.add('show');
+    renderFlower(); // <-- draw the flower immediately
+}
+document.addEventListener("DOMContentLoaded", () => {
+    renderFlower();
+});
+    // Toggle Details tab
+    const detailsBubble = document.querySelector('.bubble:nth-child(1)'); // first bubble = Details
+    const detailsContent = document.getElementById('detailsContent');
+
+    detailsBubble.onclick = function(){
+        detailsContent.classList.toggle('show');
+    }
+
+    // Petal slider update
+    const petalSlider = document.getElementById('petalSlider');
+    const petalCount = document.getElementById('petalCount');
+
+   petalSlider.oninput = function() {
+  petalCount.textContent = petalSlider.value;
+  renderFlower(); // redraw with new petal count
+};
+
+    // Flower type button selection
+    const flowerButtons = document.querySelectorAll('.flowerBtn');
+    flowerButtons.forEach(btn => {
+  btn.onclick = function() {
+    flowerButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderFlower(); // redraw with new type
+  };
+});
+   function saveFlower() {
+  const nameInput = document.querySelector("#descriptionContent input.descriptionInput").value.trim();
+  const descInput = document.querySelector("#descriptionContent textarea.descriptionInput").value.trim();
+
+  const activeColor = document.querySelector(".colorSquare.active");
+  const color = activeColor ? activeColor.style.background : "#444";
+
+  if (!descInput) {
+    alert("Please add a description for your flower 🌸");
+    return;
+  }
+
+  const diary = JSON.parse(localStorage.getItem("fleurDiary")) || [];
+
+  // Prevent duplicates
+  const alreadyExists = diary.some(entry =>
+    entry.emotion === (nameInput || "Unnamed Emotion") &&
+    entry.description === descInput &&
+    entry.color === color
+  );
+
+  if (alreadyExists) {
+    alert("This flower has already been saved 🌼");
+    return;
+  }
+
+  diary.push({
+    description: descInput,
+    emotion: nameInput || "Unnamed Emotion",
+    color,
+    createdAt: new Date().toLocaleString()
+  });
+
+  localStorage.setItem("fleurDiary", JSON.stringify(diary));
+  renderDiary();
+}
+
+// ✅ Attach once, outside
+document.getElementById("saveFlowerBtn").addEventListener("click", saveFlower);
+
+// ✅ Plus button toggle stays as-is
+document.getElementById('plusButton').onclick=function(){
+    document.getElementById('plusFrame').classList.add('show');
+}
+document.getElementById('closePlusFrame').onclick=function(){
+    document.getElementById('plusFrame').classList.remove('show');
+}
+        </script>
+    </BODY>
+</HTML>
