@@ -57,7 +57,7 @@
 
 #diaryEntries {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  grid-template-columns: repeat(3, 1fr); 
   grid-gap: 20px;
   padding: 20px;
 }
@@ -182,9 +182,9 @@
     left: 50%;
     top: 100%;
     width: 950px;
-    height: 570px; /* <-- add px here */
-    background: #e2c49f; /* cork/wood beige */
-    border: 8px solid #a67c52; /* darker wood trim */
+    height: 570px;
+    background: #e2c49f; 
+    border: 8px solid #a67c52; 
     border-radius: 20px;
     box-shadow: 0 12px 40px rgba(80, 50, 20, 0.4);
     transform: translate(-50%, 0);
@@ -210,7 +210,7 @@
     width: 55%;
     height: 100%;
     background: #fffdfa;
-    border: 5px solid #8b5e3c; /* deep wood brown */
+    border: 5px solid #8b5e3c; 
     border-radius: 16px;
     box-shadow: inset 0 0 12px rgba(0,0,0,0.15);
     display: flex;
@@ -225,31 +225,30 @@
     gap: 20px;
     align-items: flex-start;
     max-height: 100%;
-    overflow-y: auto;       /* scrollable */
-    overflow-x: visible;    /* allow horizontal overflow */
-    position: relative;     /* needed for overflow control */
+    overflow-y: auto;       
+    overflow-x: visible;    
+    position: relative;     
     padding-right: 12px;
 }
 
-/* Hide scrollbars */
 #bubbleContainer::-webkit-scrollbar { display: none; }
 #bubbleContainer { scrollbar-width: none; -ms-overflow-style: none; }
 #bubbleContainer {
-    padding: 20px 20px 80px 20px; /* more space around bubbles */
+    padding: 20px 20px 80px 20px; 
 }
 
 .bubble {
     width: 90%;
     padding: 14px 15px;
-    background: #f7d9c4; /* soft peach note */
+    background: #f7d9c4; 
     border-radius: 30px;
     font-size: 18px;
     font-weight: 600;
-    color: #5a3c2e; /* chocolate brown text */
+    color: #5a3c2e; 
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     cursor: pointer;
     transition: transform 0.2s ease;
-    border: 2px solid #c48f65; /* pinned edge */
+    border: 2px solid #c48f65; 
 }
 
 .bubble:hover {
@@ -257,19 +256,19 @@
     background: #f4c7a8;
 }
 #saveFlowerBtn {
-  background: #86ab74;          /* soft green to match Fleur’s palette */
-  color: #fff;                  /* white text */
-  border: 2px solid #444;       /* subtle dark border */
-  border-radius: 12px;          /* rounded corners */
-  padding: 10px 20px;           /* cozy spacing */
-  font-size: 16px;              /* readable text */
-  font-family: 'Comic Sans MS', cursive, sans-serif; /* playful vibe */
+  background: #86ab74;          
+  color: #fff;              
+  border: 2px solid #444;       
+  border-radius: 12px;          
+  padding: 10px 20px;           
+  font-size: 16px;              
+  font-family: 'Comic Sans MS', cursive, sans-serif; 
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 #saveFlowerBtn:hover {
-  background: #6f8f5f;          /* darker green on hover */
+  background: #6f8f5f;         
 }
             #closePlusFrame{
                 position:absolute;
@@ -297,21 +296,19 @@
     align-items: center;
     margin-top: 40px;
 }
-/* Details tab content */
 #detailsContent {
     margin-top: 20px;
     width: 100%;
     display: none;
     flex-direction: column;
     gap: 20px;
-    color: #5a3c2e; /* warm brown text */
+    color: #5a3c2e; 
 }
 
 #detailsContent.show {
     display: flex;
 }
 
-/* Slider styling */
 .detailsSlider {
     width: 100%;
 }
@@ -322,36 +319,8 @@
     margin-bottom: 6px;
 }
 
-/* Flower type buttons */
-.flowerTypes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.flowerBtn {
-    padding: 10px 16px;
-    background: #f7d9c4; /* peach note */
-    border: 2px solid #c48f65;
-    border-radius: 12px;
-    font-size: 15px;
-    font-weight: 600;
-    color: #5a3c2e;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.flowerBtn:hover {
-    background: #f4c7a8;
-    transform: scale(1.05);
-}
-
-.flowerBtn.active {
-    background: #d9b38c; /* muted wood highlight */
-    color: #fffdfa;
-}
 #primaryColorContent {
-    display: none;   /* hidden by default */
+    display: none;   
     margin-top: 20px;
     width: 100%;
     flex-direction: column;
@@ -360,7 +329,7 @@
 }
 
 #primaryColorContent.show {
-    display: flex;   /* shows when .show is added */
+    display: flex;   
 }
 
 .colorGrid {
@@ -385,10 +354,10 @@
 }
 
 .colorSquare.active {
-    border: 3px solid #6c8e46; /* olive green highlight */
+    border: 3px solid #6c8e46; 
 }
 #secondaryColorContent {
-    display: none;   /* hidden by default */
+    display: none;   
     margin-top: 20px;
     width: 100%;
     flex-direction: column;
@@ -422,10 +391,10 @@
 }
 
 .secondaryColorSquare.active {
-    border: 3px solid #6c8e46; /* olive green highlight */
+    border: 3px solid #6c8e46; 
 }
 #descriptionContent {
-    display: none;   /* hidden by default */
+    display: none;   
     margin-top: 20px;
     width: 100%;
     flex-direction: column;
@@ -520,7 +489,7 @@
 
 .stem {
   position: absolute;
-  top: 50%;              /* start just below the bloom */
+  top: 50%;              
   left: 50%;
   width: 10px;
   height: 120px;
@@ -529,33 +498,88 @@
   border-radius: 5px;
   z-index: 0;
 }
-.center {
-  position: absolute;
-  top: 28%;
-  left: 50%;
-  width: 42px;
-  height: 42px;
-  background: var(--center-color, #d9b38c); /* use variable */
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
 .petal {
   position: absolute;
   top: 10%;
   left: 50%;
   width: 40px;
   height: 90px;
-  background: var(--petal-color, #f7d9c4); /* use variable */
   border-radius: 50% 50% 55% 55%;
   transform-origin: center bottom;
   z-index: 1;
+
+  background: var(--petal-color, #f7d9c4);
 }
 
+.center {
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+  background: var(--center-color, #d9b38c);
+}
+#garden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; 
+    overflow: hidden;
+}
+
+.gardenFlower {
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 5; 
+}
+.gardenFlower:hover {
+    transform: scale(1.1);
+    z-index: 6;
+}
+.gardenFlowerWrapper {
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    transform: scale(0.3); 
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.2s;
+}
+
+.gardenFlowerWrapper:hover {
+    transform: scale(0.35); 
+    z-index: 10;
+}
         </STYLE>
     </HEAD>
-    <BODY>   
+    <BODY> 
+        <div id="garden"></div>  
+        <audio id="bgm" loop preload="auto">
+  <source src="C:/Users/manuj_5gl6nqu/OneDrive/Desktop/Devanshi's private folder/Ideas/Fleur/Music for Fleur.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const bgm = document.getElementById('bgm');
+
+bgm.play().catch(() => {
+  const startAudio = () => {
+    bgm.play();
+    document.removeEventListener('click', startAudio);
+    document.removeEventListener('keydown', startAudio);
+    document.removeEventListener('touchstart', startAudio);
+  };
+  document.addEventListener('click', startAudio);
+  document.addEventListener('keydown', startAudio);
+  document.addEventListener('touchstart', startAudio);
+});
+</script>
+
         <img id ="diaryIcon"
         src="C:\Users\manuj_5gl6nqu\OneDrive\Desktop\Devanshi's private folder\Ideas\Fleur\Diary Icon.png"
         alt="Diary Icon"
@@ -567,63 +591,179 @@
             </div>
         </div>
         <script>
-            document.getElementById('diaryIcon').onclick=function(){
-                document.getElementById('diaryFrame').classList.add('show');
-            }
-            document.getElementById('closeDiary').onclick=function(){
-                document.getElementById('diaryFrame').classList.remove('show');
-            }
-            let currentPage = 0;
+    document.getElementById('diaryIcon').onclick = function() {
+        document.getElementById('diaryFrame').classList.add('show');
+        renderDiary(); 
+    }
+    document.getElementById('closeDiary').onclick = function() {
+        document.getElementById('diaryFrame').classList.remove('show');
+    }
 
-function renderDiary() {
-  const diaryEntries = document.getElementById("diaryEntries");
-  diaryEntries.innerHTML = "";
+    document.addEventListener("DOMContentLoaded", () => {
+        const savedGarden = JSON.parse(localStorage.getItem("fleurGarden")) || [];
+        savedGarden.forEach(f => placeFlowerInGarden(f, f.x, f.y, false));
 
-  const diary = JSON.parse(localStorage.getItem("fleurDiary")) || [];
-  const pageSize = 9; // 3 rows × 3 columns
-  const start = currentPage * pageSize;
-  const end = start + pageSize;
-  const pageItems = diary.slice(start, end);
+        const garden = document.getElementById("garden");
 
-  if (pageItems.length === 0) {
-    diaryEntries.innerHTML = "<p style='text-align:center;color:#999;'>Your diary is empty, try saving some flowers</p>";
-    return;
-  }
+        garden.addEventListener("dragover", e => {
+            e.preventDefault(); 
+        });
 
-  pageItems.forEach(entry => {
-    const div = document.createElement("div");
-    div.className = "diaryEntry";
-    div.innerHTML = `
-      <h3 style="color:${entry.color || '#444'}">${entry.emotion}</h3>
-      <p>${entry.description}</p>
-      <small style="color:#aaa;">Created: ${entry.createdAt}</small>
-    `;
-    diaryEntries.appendChild(div);
-  });
+        garden.addEventListener("drop", e => {
+            e.preventDefault();
+            const raw = e.dataTransfer.getData("text/plain");
+            if (!raw) return;
 
-  // Add pagination controls
-  const totalPages = Math.ceil(diary.length / pageSize);
-  const controls = document.createElement("div");
-  controls.style.textAlign = "center";
-  controls.style.marginTop = "10px";
+            const data = JSON.parse(raw);
+            placeFlowerInGarden(data, e.clientX, e.clientY, true);
+        });
+    });
 
-  if (currentPage > 0) {
-    const prevBtn = document.createElement("button");
-    prevBtn.textContent = "← Previous";
-    prevBtn.onclick = () => { currentPage--; renderDiary(); };
-    controls.appendChild(prevBtn);
-  }
+    let currentPage = 0;
 
-  if (currentPage < totalPages - 1) {
-    const nextBtn = document.createElement("button");
-    nextBtn.textContent = "Next →";
-    nextBtn.onclick = () => { currentPage++; renderDiary(); };
-    controls.appendChild(nextBtn);
-  }
+    function renderDiary() {
+        const diaryEntries = document.getElementById("diaryEntries");
+        diaryEntries.innerHTML = "";
 
-  diaryEntries.appendChild(controls);
+        const diary = JSON.parse(localStorage.getItem("fleurDiary")) || [];
+        const pageSize = 9;
+        const start = currentPage * pageSize;
+        const end = start + pageSize;
+        const pageItems = diary.slice(start, end);
+
+        if (pageItems.length === 0) {
+            diaryEntries.innerHTML = "<p style='grid-column: span 3; color:#888;'>Your diary is empty.</p>";
+        }
+
+        pageItems.forEach(entry => {
+            const div = document.createElement("div");
+            div.className = "diaryEntry";
+            div.draggable = true;
+            div.innerHTML = `
+                <h3 style="color:${entry.color || '#444'}">${entry.emotion}</h3>
+                <p>${entry.description}</p>
+                <small style="color:#aaa;">${entry.createdAt}</small>
+            `;
+
+            div.addEventListener("dragstart", e => {
+                e.dataTransfer.setData("text/plain", JSON.stringify(entry));
+
+                const ghost = document.createElement("div");
+                ghost.style.width = "40px";
+                ghost.style.height = "40px";
+                ghost.style.background = entry.color;
+                ghost.style.borderRadius = "50%";
+                ghost.style.border = "2px solid #fff";
+                document.body.appendChild(ghost);
+                e.dataTransfer.setDragImage(ghost, 20, 20);
+                setTimeout(() => document.body.removeChild(ghost), 0);
+
+                setTimeout(() => {
+                    document.getElementById('diaryFrame').classList.remove('show');
+                }, 10);
+            });
+
+            diaryEntries.appendChild(div);
+        });
+
+        const totalPages = Math.ceil(diary.length / pageSize);
+        const controls = document.createElement("div");
+        controls.style.gridColumn = "span 3";
+        controls.style.display = "flex";
+        controls.style.justifyContent = "center";
+        controls.style.gap = "20px";
+        controls.style.marginTop = "10px";
+
+        if (currentPage > 0) {
+            const prev = document.createElement("button");
+            prev.innerText = "<";
+            prev.onclick = () => { currentPage--; renderDiary(); };
+            controls.appendChild(prev);
+        }
+        if (currentPage < totalPages - 1) {
+            const next = document.createElement("button");
+            next.innerText = ">";
+            next.onclick = () => { currentPage++; renderDiary(); };
+            controls.appendChild(next);
+        }
+        if(diary.length > pageSize) diaryEntries.appendChild(controls);
+    }
+
+function placeFlowerInGarden(entry, x, y, save = false) {
+    const garden = document.getElementById("garden");
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "gardenFlowerWrapper";
+    wrapper.style.left = x + "px";
+    wrapper.style.top = y + "px";
+    wrapper.title = `${entry.emotion}: ${entry.description}`;
+
+    const flower = document.createElement("div");
+    flower.className = "flower";
+
+    const stem = document.createElement("div");
+    stem.className = "stem";
+    flower.appendChild(stem);
+
+    const pCount = entry.petalCount || 5; 
+    const pColor = entry.color || "#f7d9c4"; 
+    
+    for (let i = 0; i < pCount; i++) {
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        petal.style.background = pColor;
+        
+        // Math to rotate petals
+        const angle = (360 / pCount) * i;
+        petal.style.transform = `translate(-50%, -50%) rotate(${angle}deg) translateY(-30%)`;
+        
+        flower.appendChild(petal);
+    }
+
+    const center = document.createElement("div");
+    center.className = "center";
+    center.style.background = entry.secondaryColor || "#d9b38c"; 
+    flower.appendChild(center);
+
+    wrapper.appendChild(flower);
+    garden.appendChild(wrapper);
+
+    if (save) {
+        const savedGarden = JSON.parse(localStorage.getItem("fleurGarden")) || [];
+        savedGarden.push({ ...entry, x, y });
+        localStorage.setItem("fleurGarden", JSON.stringify(savedGarden));
+    }
 }
-        </script>
+
+document.getElementById("saveFlowerBtn").onclick = function() {
+    const name = document.querySelector("#descriptionContent input.descriptionInput").value.trim();
+    const desc = document.querySelector("#descriptionContent textarea.descriptionInput").value.trim();
+    
+    const pColor = document.querySelector(".colorSquare.active")?.style.background || "#f7d9c4";
+    const sColor = document.querySelector(".secondaryColorSquare.active")?.style.background || "#d9b38c";
+    const pCount = document.getElementById("petalSlider").value;
+
+    if (!desc) { alert("Please add a description!"); return; }
+
+    const entry = {
+        emotion: name || "Emotion",
+        description: desc,
+        color: pColor,           
+        secondaryColor: sColor,  
+        petalCount: pCount,     
+        createdAt: new Date().toLocaleString()
+    };
+
+    const diary = JSON.parse(localStorage.getItem("fleurDiary")) || [];
+    diary.push(entry);
+    localStorage.setItem("fleurDiary", JSON.stringify(diary));
+
+    alert("Saved!");
+    document.getElementById('plusFrame').classList.remove('show');
+    renderDiary();
+};
+</script>
+
         <div id="phoneIcon" title="OpenPhone">
             <img src="C:\Users\manuj_5gl6nqu\OneDrive\Desktop\Devanshi's private folder\Ideas\Fleur\Phone Icon.png" alt="Phone Icon"
             style="width:100%; height:100%; border-radius:12px;">
@@ -632,21 +772,17 @@ function renderDiary() {
             <button id="closePhone"></button>
             <h2>Your Phone</h2>
             <div>
-                <!--Put the content in this div-->
-                <!-- App list -->
-<div id="appList" class="appContainer">
+                <div id="appList" class="appContainer">
     <div id="ordersApp" class="appBox">Orders</div>
     <div id="messagesApp" class="appBox">Messages</div>
 </div>
 
-<!-- Orders screen -->
 <div id="ordersScreen" class="appScreen">
     <button class="backButton" onclick="showAppList()">← Back</button>
     <h3>My Orders</h3>
     <p>No new orders</p>
 </div>
 
-<!-- Messages screen -->
 <div id="messagesScreen" class="appScreen">
     <button class="backButton" onclick="showAppList()">← Back</button>
     <h3>Chat with Grandma</h3>
@@ -695,68 +831,53 @@ function renderDiary() {
             <button id ="closePlusFrame" aria-label="Close">
             </button>
             <div id="previewWindow">
-    <!-- Rectangular preview area -->
     <p style="text-align:center; margin-top:50%; color:#8b5e3c;">Flower Preview</p>
 </div>
 <script>
     function renderFlower() {
   const preview = document.getElementById("previewWindow");
-  preview.innerHTML = ""; // clear old flower
+  preview.innerHTML = "";
 
-  // Get petal count
   const petalCount = parseInt(document.getElementById("petalSlider").value);
 
-  // Get colors
   const primary = document.querySelector(".colorSquare.active")?.style.background || "#f7d9c4";
   const secondary = document.querySelector(".secondaryColorSquare.active")?.style.background || "#d9b38c";
 
-  // Create flower container
   const flower = document.createElement("div");
   flower.className = "flower";
 
-  // ✅ Apply chosen colors as CSS variables
-  flower.style.setProperty("--stem-color", "#6c8e46");
-  flower.style.setProperty("--center-color", secondary);
-  flower.style.setProperty("--petal-color", primary);
-
-  // Stem
   const stem = document.createElement("div");
   stem.className = "stem";
+  stem.style.background = "#6c8e46"; 
   flower.appendChild(stem);
 
-  // Petals
   for (let i = 0; i < petalCount; i++) {
     const petal = document.createElement("div");
     petal.className = "petal";
+    petal.style.background = primary; 
     const angle = (360 / petalCount) * i;
     petal.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
     flower.appendChild(petal);
   }
 
-  // Center
   const center = document.createElement("div");
   center.className = "center";
+  center.style.background = secondary; 
   flower.appendChild(center);
 
   preview.appendChild(flower);
 }
-// Petal slider
-document.getElementById("petalSlider").oninput = renderFlower;
 </script>
 <script>
-// Primary color selection (petals)
+
 document.querySelectorAll(".colorSquare").forEach(square => {
   square.addEventListener("click", () => {
-    // clear actives
     document.querySelectorAll(".colorSquare").forEach(s => s.classList.remove("active"));
-    // set active
     square.classList.add("active");
-    // redraw now
     renderFlower();
   });
 });
 
-// Secondary color selection (center)
 document.querySelectorAll(".secondaryColorSquare").forEach(square => {
   square.addEventListener("click", () => {
     document.querySelectorAll(".secondaryColorSquare").forEach(s => s.classList.remove("active"));
@@ -768,58 +889,39 @@ document.querySelectorAll(".secondaryColorSquare").forEach(square => {
 
 <div id="bubbleContainer">
     <div class="bubble">Details</div>
-    <!-- Details tab expanded content -->
-<div id="detailsContent">
-    <!-- Number of petals -->
+    <div id="detailsContent">
     <div>
         <div class="detailsLabel">Number of petals</div>
         <input type="range" min="0" max="8" value="4" class="detailsSlider" id="petalSlider">
         <span id="petalCount">4</span>
     </div>
-
-    <!-- Flower type selection -->
-    <div>
-        <div class="detailsLabel">Type of flower</div>
-        <div class="flowerTypes">
-            <button class="flowerBtn">Dandelion</button>
-            <button class="flowerBtn">Sunflower</button>
-            <button class="flowerBtn">Rose</button>
-            <button class="flowerBtn">Tulip</button>
-            <button class="flowerBtn">Daisy</button>
-            <button class="flowerBtn">Lily</button>
-            <button class="flowerBtn">Marigold</button>
-        </div>
+    
     </div>
-</div>
 <div class="bubble" id="primaryColorBubble">Primary Color</div>
 
 <div id="primaryColorContent">
     <div class="detailsLabel">Choose a Primary Color</div>
     <div class="colorGrid">
-        <!-- Warm neutrals -->
-        <div class="colorSquare" style="background:#fffdfa;" title="Cream White"></div>
-        <div class="colorSquare" style="background:#f2e6d8;" title="Parchment"></div>
+        <div class="colorSquare" style="background:#f0efeb;" title="Cream White"></div>
+        <div class="colorSquare" style="background:#00AFB9;" title="Turquoise Blue"></div>
         <div class="colorSquare" style="background:#e2c49f;" title="Cork Beige"></div>
         <div class="colorSquare" style="background:#d9b38c;" title="Caramel"></div>
         <div class="colorSquare" style="background:#a67c52;" title="Wood Brown"></div>
         <div class="colorSquare" style="background:#8b5e3c;" title="Deep Brown"></div>
 
-        <!-- Reds & pinks -->
         <div class="colorSquare" style="background:#873a3a;" title="Wine Red"></div>
         <div class="colorSquare" style="background:#b56576;" title="Muted Rose"></div>
         <div class="colorSquare" style="background:#e8b4a7;" title="Blush"></div>
         <div class="colorSquare" style="background:#f4c7a8;" title="Apricot"></div>
-        <div class="colorSquare" style="background:#f7d9c4;" title="Peach"></div>
+        <div class="colorSquare" style="background:#000000;" title="black"></div>
 
-        <!-- Greens -->
-        <div class="colorSquare" style="background:#6c8e46;" title="Olive Green"></div>
+        <div class="colorSquare" style="background:#725aa9;" title="Muted Lavendar"></div>
         <div class="colorSquare" style="background:#7cae54;" title="Leaf Green"></div>
         <div class="colorSquare" style="background:#9bbf7c;" title="Sage"></div>
         <div class="colorSquare" style="background:#c5d9a0;" title="Pistachio"></div>
 
-        <!-- Yellows & golds -->
         <div class="colorSquare" style="background:#f6e27f;" title="Goldenrod"></div>
-        <div class="colorSquare" style="background:#f9d976;" title="Sunflower Yellow"></div>
+        <div class="colorSquare" style="background:#F4A261;" title="Soft Orange"></div>
         <div class="colorSquare" style="background:#f2c572;" title="Honey"></div>
         <div class="colorSquare" style="background:#d1a080;" title="Latte"></div>
     </div>
@@ -830,10 +932,9 @@ document.querySelectorAll(".secondaryColorSquare").forEach(square => {
 <div id="secondaryColorContent">
     <div class="detailsLabel">Choose a Secondary Color</div>
     <div class="secondaryColorGrid">
-        <!-- Softer complementary palette -->
         <div class="secondaryColorSquare" style="background:#e8b4a7;" title="Blush"></div>
-        <div class="secondaryColorSquare" style="background:#f7d9c4;" title="Peach"></div>
-        <div class="secondaryColorSquare" style="background:#f2e6d8;" title="Parchment"></div>
+        <div class="secondaryColorSquare" style="background:#00AFB9;" title="Turquoise Blue"></div>
+        <div class="secondaryColorSquare" style="background:#000000;" title="Black"></div>
         <div class="secondaryColorSquare" style="background:#c5d9a0;" title="Pistachio"></div>
         <div class="secondaryColorSquare" style="background:#9bbf7c;" title="Sage"></div>
 
@@ -841,10 +942,10 @@ document.querySelectorAll(".secondaryColorSquare").forEach(square => {
         <div class="secondaryColorSquare" style="background:#f4c7a8;" title="Apricot"></div>
         <div class="secondaryColorSquare" style="background:#b56576;" title="Muted Rose"></div>
         <div class="secondaryColorSquare" style="background:#f6e27f;" title="Goldenrod"></div>
-        <div class="secondaryColorSquare" style="background:#f9d976;" title="Sunflower Yellow"></div>
+        <div class="secondaryColorSquare" style="background:#F4A261;" title="Soft Orange"></div>
 
         <div class="secondaryColorSquare" style="background:#7cae54;" title="Leaf Green"></div>
-        <div class="secondaryColorSquare" style="background:#6c8e46;" title="Olive Green"></div>
+        <div class="secondaryColorSquare" style="background:#725aa9;" title="Olive Green"></div>
         <div class="secondaryColorSquare" style="background:#d9b38c;" title="Caramel"></div>
         <div class="secondaryColorSquare" style="background:#a67c52;" title="Wood Brown"></div>
         <div class="secondaryColorSquare" style="background:#8b5e3c;" title="Deep Brown"></div>
@@ -871,16 +972,22 @@ document.querySelectorAll(".secondaryColorSquare").forEach(square => {
     primaryColorBubble.onclick = function(){
         primaryColorContent.classList.toggle('show');
     }
+document.querySelectorAll(".colorSquare").forEach(square => {
+  square.addEventListener("click", () => {
+    document.querySelectorAll(".colorSquare").forEach(s => s.classList.remove("active"));
+    square.classList.add("active");
+    renderFlower();
+  });
+});
 
-    const colorSquares = document.querySelectorAll('.colorSquare');
-    colorSquares.forEach(square => {
-        square.onclick = function(){
-            colorSquares.forEach(s => s.classList.remove('active'));
-            square.classList.add('active');
-            console.log("Selected color:", square.title);
-        }
-    });
-    // Toggle Secondary Color tab
+document.querySelectorAll(".secondaryColorSquare").forEach(square => {
+  square.addEventListener("click", () => {
+    document.querySelectorAll(".secondaryColorSquare").forEach(s => s.classList.remove("active"));
+    square.classList.add("active");
+    renderFlower(); 
+  });
+});
+
 const secondaryColorBubble = document.getElementById('secondaryColorBubble');
 const secondaryColorContent = document.getElementById('secondaryColorContent');
 
@@ -888,58 +995,38 @@ secondaryColorBubble.onclick = function(){
     secondaryColorContent.classList.toggle('show');
 }
 
-// Secondary color selection
-const secondarySquares = document.querySelectorAll('.secondaryColorSquare');
-secondarySquares.forEach(square => {
-    square.onclick = function(){
-        secondarySquares.forEach(s => s.classList.remove('active'));
-        square.classList.add('active');
-        console.log("Selected secondary color:", square.title);
-    }
-});
-// Toggle Description tab
 const descriptionBubble = document.getElementById('descriptionBubble');
 const descriptionContent = document.getElementById('descriptionContent');
 
 descriptionBubble.onclick = function(){
     descriptionContent.classList.toggle('show');
 }
+document.addEventListener("DOMContentLoaded", renderFlower);
 </script>
 
         <script>
             document.getElementById('plusButton').onclick = function() {
     document.getElementById('plusFrame').classList.add('show');
-    renderFlower(); // <-- draw the flower immediately
+    renderFlower(); 
 }
 document.addEventListener("DOMContentLoaded", () => {
     renderFlower();
 });
-    // Toggle Details tab
-    const detailsBubble = document.querySelector('.bubble:nth-child(1)'); // first bubble = Details
+    const detailsBubble = document.querySelector('.bubble:nth-child(1)'); 
     const detailsContent = document.getElementById('detailsContent');
 
     detailsBubble.onclick = function(){
         detailsContent.classList.toggle('show');
     }
 
-    // Petal slider update
     const petalSlider = document.getElementById('petalSlider');
     const petalCount = document.getElementById('petalCount');
 
    petalSlider.oninput = function() {
   petalCount.textContent = petalSlider.value;
-  renderFlower(); // redraw with new petal count
+  renderFlower(); 
 };
 
-    // Flower type button selection
-    const flowerButtons = document.querySelectorAll('.flowerBtn');
-    flowerButtons.forEach(btn => {
-  btn.onclick = function() {
-    flowerButtons.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderFlower(); // redraw with new type
-  };
-});
    function saveFlower() {
   const nameInput = document.querySelector("#descriptionContent input.descriptionInput").value.trim();
   const descInput = document.querySelector("#descriptionContent textarea.descriptionInput").value.trim();
@@ -954,7 +1041,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const diary = JSON.parse(localStorage.getItem("fleurDiary")) || [];
 
-  // Prevent duplicates
   const alreadyExists = diary.some(entry =>
     entry.emotion === (nameInput || "Unnamed Emotion") &&
     entry.description === descInput &&
@@ -977,10 +1063,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderDiary();
 }
 
-// ✅ Attach once, outside
 document.getElementById("saveFlowerBtn").addEventListener("click", saveFlower);
 
-// ✅ Plus button toggle stays as-is
 document.getElementById('plusButton').onclick=function(){
     document.getElementById('plusFrame').classList.add('show');
 }
